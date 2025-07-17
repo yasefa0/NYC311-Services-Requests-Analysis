@@ -12,6 +12,14 @@ This project analyzes NYC 311 Service Request data using AWS tools to build a sc
 
 ---
 
+## 🏗️ Architecture
+
+![Project Architecture](docs/architecture.png)
+
+This architecture shows how raw NYC311 data flows from ingestion to visualization
+
+---
+
 ## 📅 Data Source
 
 - **Source**: [NYC Open Data – 311 Service Requests (2010–Present)](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9)
@@ -85,10 +93,6 @@ nyc311-bi-project/
 ├── README.md
 ├── .gitignore
 └── requirements.txt
-
-yaml
-Copy
-Edit
 
 ---
 
