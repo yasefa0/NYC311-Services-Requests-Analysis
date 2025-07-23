@@ -65,6 +65,16 @@ s3://nyc311-bi-project-data/raw/311_service_requests/year=2025/
 
 ---
 
+### 🧼 Data Integrity
+- Total rows in `raw_311`: 1,733,709
+- Successfully modeled into fact table: 1,616,767 (~93.3%)
+- Dropped due to:
+  - Location mismatch: 84,995
+  - Complaint mismatch: 39,416
+  - ✅ **Pct. loaded into analytics layer**: **93.25%**
+
+---
+
 ## ✅ Current Progress
 - ✅ Extracted and cleaned 1.7 M NYC311 records (2025 H1)
 - ✅ Uploaded to S3 (raw zone) in both batch and full formats
