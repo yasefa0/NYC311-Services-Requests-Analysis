@@ -56,23 +56,28 @@ s3://nyc311-bi-project-data/raw/311_service_requests/year=2025/
 
 ---
 
-## ✅ Current Progress
+## 📊 Data Warehouse Design
 
-- ✅ Extracted and cleaned 1.7M NYC311 records (2025 H1)
-- ✅ Uploaded to S3 (raw zone) in both batch and full formats
-- ✅ Created local repo folder structure and `.gitignore`
-- 🟡 Star schema design (in progress)
-- ⏳ COPY command + Redshift loading (next)
-- ⏳ Initial dashboard in QuickSight
+- Loaded `raw_311` into Redshift via S3 using `COPY`
+- Created star schema: `dim_date`, `dim_location`, `dim_complaint_type`, `fact_service_request`
+- Cleaned duplicates using `vw_raw_311_deduped` view
+- Fact table tracks resolution time, location, complaint type, and status
 
 ---
 
-## 📌 Next Steps
+## ✅ Current Progress
+- ✅ Extracted and cleaned 1.7 M NYC311 records (2025 H1)
+- ✅ Uploaded to S3 (raw zone) in both batch and full formats
+- ✅ Implemented full star schema in Redshift:
+  - `dim_date`, `dim_location`, `dim_complaint_type`, `fact_service_request`
+  - Deduplicated source via `vw_raw_311_deduped`
+- ✅ SQL scripts added to `scripts/sql/redshift/`
+- ⏳ Building KPI queries & connecting Redshift to QuickSight
 
-- [ ] Design fact and dimension tables (Redshift schema)
-- [ ] Create Glue job or SQL COPY into Redshift
-- [ ] Build KPI queries (top complaint types, avg resolution time)
-- [ ] Connect Redshift to QuickSight and visualize
+## 📌 Next Steps
+- [ ] Write KPI/aggregation queries (resolution time, top complaint trends)
+- [ ] Connect Redshift to Amazon QuickSight
+- [ ] Design interactive dashboards (heat map by borough, trend lines)
 
 ---
 
