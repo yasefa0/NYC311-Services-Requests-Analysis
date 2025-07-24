@@ -91,13 +91,13 @@ s3://nyc311-bi-project-data/raw/311_service_requests/year=2025/
 ## 📊 Amazon QuickSight Dashboard
 
 #### Executive Summary  
-![KPI Summary](dashboards/quicksight/slice1.png)
+![KPI Summary](dashboards/quicksight/Slice1.png)
 
 #### Complaint Patterns & Trends  
-![Trends & Heatmap](dashboards/quicksight/slice2.png)
+![Trends & Heatmap](dashboards/quicksight/Slice2.png)
 
 #### NYC Complaint Density Map  
-![Geospatial Map](dashboards/quicksight/slice3.png)
+![Geospatial Map](dashboards/quicksight/Slice3.png)
 
 **Key Features:**
 - Total requests, resolution time, and open request % shown as KPI cards
