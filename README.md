@@ -76,35 +76,59 @@ s3://nyc311-bi-project-data/raw/311_service_requests/year=2025/
 ---
 
 ## ✅ Current Progress
-- ✅ Extracted and cleaned 1.7 M NYC311 records (2025 H1)
+
+- ✅ Extracted and cleaned 1.7M NYC311 records (2025 H1)
 - ✅ Uploaded to S3 (raw zone) in both batch and full formats
 - ✅ Implemented full star schema in Redshift:
   - `dim_date`, `dim_location`, `dim_complaint_type`, `fact_service_request`
   - Deduplicated source via `vw_raw_311_deduped`
 - ✅ SQL scripts added to `scripts/sql/redshift/`
-- ⏳ Building KPI queries & connecting Redshift to QuickSight
-
-## 📌 Next Steps
-- [ ] Write KPI/aggregation queries (resolution time, top complaint trends)
-- [ ] Connect Redshift to Amazon QuickSight
-- [ ] Design interactive dashboards (heat map by borough, trend lines)
+- ✅ Created [KPI views](scripts/sql/redshift/create_kpi_views.sql) in Redshift
+- ✅ Connected Redshift to QuickSight and published SPICE dataset
 
 ---
 
-## 📁 Repo Structure (Planned)
+## 📊 Amazon QuickSight Dashboard
+
+#### Executive Summary  
+![KPI Summary](dashboards/quicksight/slice1.png)
+
+#### Complaint Patterns & Trends  
+![Trends & Heatmap](dashboards/quicksight/slice2.png)
+
+#### NYC Complaint Density Map  
+![Geospatial Map](dashboards/quicksight/slice3.png)
+
+**Key Features:**
+- Total requests, resolution time, and open request % shown as KPI cards
+- Monthly trends and complaint breakdowns by borough
+- Heatmap of complaint types × boroughs
+- Interactive NYC geospatial map of complaint clusters
+
+---
+## 📌 Next Steps
+
+- [ ] Add AWS Glue job for incremental data refresh
+- [ ] Enhance dashboard with filters and controls (e.g., borough selector)
+- [ ] Publish final walkthrough summary and demo link
+
+---
+
+## 📁 Repo Structure
 
 nyc311-bi-project/
 ├── data/
-│ └── raw/ # Local CSVs (ignored in Git)
+│   └── raw/                     # Local CSVs (ignored in Git)
 ├── scripts/
-│ └── glue_jobs/ # ETL logic (Python)
-├── sql/
-│ └── redshift/ # DDL, COPY, KPIs
-├── notebooks/ # Optional: EDA or prototypes
-├── dashboards/ # QuickSight assets/screenshots
+│   ├── glue_jobs/              # ETL logic (Python)
+│   └── sql/
+│       └── redshift/           # DDL, COPY, KPIs
+├── notebooks/                  # Optional: EDA or prototypes
+├── dashboards/
+│   └── quicksight/             # QuickSight screenshots (sliced PNGs)
 ├── docs/
-│ ├── schema_diagram.png
-│ └── architecture.png
+│   ├── schema_diagram.png
+│   └── architecture.png
 ├── README.md
 ├── .gitignore
 └── requirements.txt
